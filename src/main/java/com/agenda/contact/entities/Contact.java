@@ -1,8 +1,21 @@
 package com.agenda.contact.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name ="TBL_CONTACT")
 public class Contact {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column
     private String nome;
     private String email;
     private String telefone;
@@ -11,7 +24,7 @@ public class Contact {
     private String genero;
     private String categoria;
     private Boolean favorito;
-    
+
     public Integer getId() {
         return id;
     }
