@@ -26,5 +26,11 @@ public class ContactService {
         );
     }
     
+    public void deleteContactById(int id){
+        if(this.contactRepository.existsById(id)){
+            this.contactRepository.deleteById(id);
+        }else{}
+            throw new EntityNotFoundException("Contato não cadastrado");
+    }
     
 }
