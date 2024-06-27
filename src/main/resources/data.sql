@@ -1,0 +1,3 @@
+INSERT INTO TBL_CONTACT(NOME, EMAIL, TELEFONE, ENDERECO, ANIVERSARIO, GENERO, CATEGORIA, FAVORITO) VALUES ('Gabriela Amoroso','gabriela@example.com','123456789','Rua Exemplo, 123','1990-01-01','Feminino','Amigos', true);
+INSERT INTO TBL_CONTACT(NOME, EMAIL, TELEFONE, ENDERECO, ANIVERSARIO, GENERO, CATEGORIA, FAVORITO) VALUES ('Tito Roosch','tito@example.com','987654321','Avenida Exemplo, 456','1985-05-20','Masculino','Trabalho', false);
+INSERT INTO TBL_CONTACT(NOME, EMAIL, TELEFONE, ENDERECO, ANIVERSARIO, GENERO, CATEGORIA, FAVORITO) VALUES ('Pedro Bernardo','pedro@example.com','5647382910','Praça Exemplo, 789','1992-03-15','Masculino','Família', true);
