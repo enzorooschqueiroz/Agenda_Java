@@ -20,7 +20,7 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-    @GetMapping("/contacts")
+    @GetMapping
     public List<Contact> getContacts() {
         return contactService.getContacts();
     }
