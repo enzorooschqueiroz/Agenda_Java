@@ -14,7 +14,7 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
-    public List<Contact> geContacts(){
+    public List<Contact> getContacts(){
         return contactRepository.findAll();
     }
     
