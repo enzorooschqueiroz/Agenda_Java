@@ -15,15 +15,15 @@ import jakarta.servlet.http.HttpServletRequest;
 public class ResourceExceptionHandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<StandarError> entityNotFoundException(
+    public ResponseEntity<StandardError> entityNotFoundException(
         EntityNotFoundException e,
         HttpServletRequest request
     ){
-         StandarError error = new StandarError();
+        StandardError error = new StandardError();
         error.setStatus(HttpStatus.NOT_FOUND.value());
         error.setError("Resource not found");
         error.setMessage(e.getMessage());
-        error.setTimeStamp(Instant.now());
+        error.setTimestamp(Instant.now());
         error.setPath(request.getRequestURI());
 
 
@@ -40,7 +40,7 @@ public class ResourceExceptionHandler {
         error.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
         error.setError("Validation Error");
         error.setMessage(exception.getMessage());
-        error.setTimeStamp(Instant.now());
+        error.setTimestamp(Instant.now());
         error.setPath(request.getRequestURI());
 
         exception.getBindingResult()
