@@ -33,4 +33,8 @@ public class ContactService {
             throw new EntityNotFoundException("Contato não cadastrado");
     }
     
+    public Contact save(Contact contact){
+        return this.contactRepository.save(contact);
+    }
+
 }
