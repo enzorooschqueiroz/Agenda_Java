@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,7 +50,7 @@ public class ContactController {
     }
 
     @PostMapping
-    public ResponseEntity<ContactResponse> save(@RequestBody ContactRequest contact){
+    public ResponseEntity<ContactResponse> save(@Validated @RequestBody ContactRequest contact){
         ContactResponse newContact = this.contactService.save(contact);
 
         URI location = ServletUriComponentsBuilder.
@@ -62,7 +63,7 @@ public class ContactController {
     }
     
     @PutMapping("{id}")
-    public ResponseEntity<Void> update(@PathVariable int id, @RequestBody ContactRequest contact){
+    public ResponseEntity<Void> update(@PathVariable int id, @Validated @RequestBody ContactRequest contact){
         this.contactService.update(id, contact);
         return ResponseEntity.ok().build();
     }
