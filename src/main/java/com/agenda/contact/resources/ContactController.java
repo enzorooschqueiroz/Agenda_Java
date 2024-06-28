@@ -1,6 +1,7 @@
 package com.agenda.contact.resources;
 
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.agenda.contact.entities.Contact;
+import com.agenda.contact.dto.ContactRequest;
+import com.agenda.contact.dto.ContactResponse;
 import com.agenda.contact.services.ContactService;
 
 @RestController
@@ -25,17 +28,17 @@ public class ContactController {
     private ContactService contactService;
 
     @GetMapping
-    public ResponseEntity<List<Contact>> getContacts() {
+    public ResponseEntity<List<ContactResponse>> getContacts() {
         return ResponseEntity.ok(contactService.getContacts());
     }
 
     @GetMapping({"{id}"})
-    public ResponseEntity<Contact> geContactById(@PathVariable int id){
-        return ResponseEntity.ok(contactService.geContactById(id));
+    public ResponseEntity<ContactResponse> geContactById(@PathVariable int id){
+        return ResponseEntity.ok(contactService.getContactById(id));
     }
 
     @GetMapping("/favorites")
-    public ResponseEntity<List<Contact>> getFavoriteContacts(){
+    public ResponseEntity<List<ContactResponse>> getFavoriteContacts(){
         return ResponseEntity.ok(contactService.getFavoriteContacts());
     }
     
@@ -46,12 +49,21 @@ public class ContactController {
     }
 
     @PostMapping
-    public Contact createContact(@RequestBody Contact contact){
-        return this.contactService.save(contact);
+    public ResponseEntity<ContactResponse> save(@RequestBody ContactRequest contact){
+        ContactResponse newContact = this.contactService.save(contact);
+
+        URI location = ServletUriComponentsBuilder.
+                                fromCurrentRequest()
+                                .path("/{id}")
+                                .buildAndExpand(newContact.id())
+                                .toUri();
+
+        return ResponseEntity.created(location).body(newContact);
     }
     
     @PutMapping("{id}")
-    public void update(@PathVariable int id, @RequestBody Contact contact){
+    public ResponseEntity<Void> update(@PathVariable int id, @RequestBody ContactRequest contact){
         this.contactService.update(id, contact);
+        return ResponseEntity.ok().build();
     }
 }
