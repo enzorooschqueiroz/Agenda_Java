@@ -33,6 +33,11 @@ public class ContactController {
     public ResponseEntity<Contact> geContactById(@PathVariable int id){
         return ResponseEntity.ok(contactService.geContactById(id));
     }
+
+    @GetMapping("/favorites")
+    public ResponseEntity<List<Contact>> getFavoriteContacts(){
+        return ResponseEntity.ok(contactService.getFavoriteContacts());
+    }
     
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteContactById(@PathVariable int id){

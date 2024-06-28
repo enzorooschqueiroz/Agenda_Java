@@ -1,7 +1,6 @@
 package com.agenda.contact.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +17,10 @@ public class ContactService {
 
     public List<Contact> getContacts(){
         return contactRepository.findAll();
+    }
+    
+    public List<Contact> getFavoriteContacts() {
+        return contactRepository.findByFavoritoTrue();
     }
 
     public Contact geContactById(int id){
