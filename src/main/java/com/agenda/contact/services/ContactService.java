@@ -37,4 +37,20 @@ public class ContactService {
         return this.contactRepository.save(contact);
     }
 
+    public void update(int id, Contact contact){
+        try{
+            Contact aux = contactRepository.getReferenceById(id);
+            aux.setNome(contact.getNome());
+            aux.setEmail(contact.getEmail());
+            aux.setTelefone(contact.getTelefone());
+            aux.setAniversario(contact.getAniversario());
+            aux.setGenero(contact.getGenero());
+            aux.setCategoria(contact.getCategoria());
+            aux.setFavorito(contact.getFavorito());
+            this.contactRepository.save(aux);
+        }catch (Exception e){
+            throw new EntityNotFoundException("Contato não registrado");
+        }
+    }
+
 }
