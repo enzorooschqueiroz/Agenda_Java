@@ -24,7 +24,7 @@ import com.agenda.contact.services.ContactService;
 
 @RestController
 @CrossOrigin
-@RequestMapping
+@RequestMapping("contacts")
 public class ContactController {
 
     @Autowired
