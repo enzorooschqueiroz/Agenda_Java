@@ -15,12 +15,8 @@ public record ContactRequest(
         @NotBlank(message = "Telefone não pode ser vazio")
         String telefone,
 
-        @NotBlank(message = "Endereço não pode ser vazio")
         String endereco,
-
-        @NotBlank(message = "Aniversário não pode ser vazio")
         String aniversario,
-
         String genero,
         String categoria,
 
