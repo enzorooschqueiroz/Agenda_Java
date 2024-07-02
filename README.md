@@ -1,6 +1,4 @@
-Claro! Aqui está uma versão mais concisa e direta do README:
 
-```
 # Sistema de Gerenciamento de Contatos
 
 Um sistema simples de gerenciamento de contatos desenvolvido em Spring Boot.
@@ -33,9 +31,7 @@ Um sistema simples de gerenciamento de contatos desenvolvido em Spring Boot.
    ```
 
 2. Execute a aplicação:
-   ```
    mvn spring-boot:run
-   ```
 
    Acesse em: `http://localhost:8080`
 
