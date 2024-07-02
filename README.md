@@ -11,10 +11,14 @@ Um sistema simples de gerenciamento de contatos desenvolvido em Spring Boot.
 
 ## Tecnologias Utilizadas
 
-- Java
-- Spring Boot
-- H2 Database (em memória para desenvolvimento)
 
+- Java 17
+- Spring Boot 3.2.7
+- Spring Boot Starter Data JPA
+- Spring Boot Starter Web
+- Spring Boot Starter Validation
+- H2 Database (em memória para desenvolvimento)
+  
 ## Configuração e Execução
 
 ### Pré-requisitos
