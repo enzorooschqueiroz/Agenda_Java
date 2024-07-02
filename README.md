@@ -26,8 +26,8 @@ Um sistema simples de gerenciamento de contatos desenvolvido em Spring Boot.
 
 1. Clone o repositório:
    ```
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   https://github.com/enzorooschqueiroz/Agenda_Java.git
+   
    ```
 
 2. Execute a aplicação:
